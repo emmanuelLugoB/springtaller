@@ -6,18 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-//Significa que se creara una tabla Cliente
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+// Indicamos que nuestra clase será gerenciada para ser persistida en la base de datos y creara una tabla
 @Entity
 public class Cliente {
-	//Identificacion de clave primaria
+	//Indicamos que tendrá la propiedad de clave primaria
 	@Id
-	//Generacion automatica de valor
+	// Indicamos la generación automática del código correspondiente a la clave primaria.
 	@GeneratedValue
 	private Integer id;
-	
 	private String nombre;
 	private String correo;
 	
+	@JsonIgnore //esto ignora la lista al guardar y consultar 
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos;
 
@@ -55,12 +58,8 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", pedidos=" + pedidos
-				+ ", toString()=" + super.toString() + "]";
+		return "Cliente [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", pedidos=" + pedidos + "]";
 	}
-
-	
-	
 	
 	
 }

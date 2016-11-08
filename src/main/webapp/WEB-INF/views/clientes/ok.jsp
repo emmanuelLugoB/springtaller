@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>OK!</title>
 </head>
 <body>
-Exito
+   <h2>El cliente ha sido guardado con susceso</h2>
 </body>
 </html>

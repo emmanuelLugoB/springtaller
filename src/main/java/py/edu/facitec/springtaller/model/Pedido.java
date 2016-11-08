@@ -9,97 +9,65 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import py.edu.facitec.springtaller.model.general.General;
+
 @Entity
-public class Pedido {
+public class Pedido extends General{
 	
-	@Id
-	@GeneratedValue
-	private long id;
 	private Date fechaToma;
 	private Date fechaEntrega;
-	private double total;
-	
-	
-	//Indicamos que se trata de una 
-	//relacion de mucho para uno
-	//posibilita la creacion de la clave
-	//foranea
+	private Double total;
+	//indica que es de uno a muchos y facilita la creacion de la clave foranea
 	@ManyToOne
 	private Cliente cliente;
-	
 	@ManyToOne
 	private Usuario usuario;
 	
+	@JsonIdentityReference   // para que la lista sea importante 
 	@OneToMany(mappedBy="pedido")
 	private List<ItemPedido> itemPedidos;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
+	
 	public Date getFechaToma() {
 		return fechaToma;
 	}
-
 	public void setFechaToma(Date fechaToma) {
 		this.fechaToma = fechaToma;
 	}
-
 	public Date getFechaEntrega() {
 		return fechaEntrega;
 	}
-
 	public void setFechaEntrega(Date fechaEntrega) {
 		this.fechaEntrega = fechaEntrega;
 	}
-
-	public double getTotal() {
+	public Double getTotal() {
 		return total;
 	}
-
-	public void setTotal(double total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
-
 	public Cliente getCliente() {
 		return cliente;
 	}
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
 	public List<ItemPedido> getItemPedidos() {
 		return itemPedidos;
 	}
-
 	public void setItemPedidos(List<ItemPedido> itemPedidos) {
 		this.itemPedidos = itemPedidos;
 	}
+	
+	
 
-	@Override
-	public String toString() {
-		return "Pedido [id=" + id + ", fechaToma=" + fechaToma + ", fechaEntrega=" + fechaEntrega + ", total=" + total
-				+ ", cliente=" + cliente + ", usuario=" + usuario + ", itemPedidos=" + itemPedidos + ", toString()="
-				+ super.toString() + "]";
-	}
-
-	
-	
-	
-	
-	
-	
 }

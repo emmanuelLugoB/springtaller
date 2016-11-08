@@ -7,19 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/springhibernate/clientes" method="post">
-	<div>
-		<label for="nombre">Nombre</label>
-		<input type="text" name="nombre" id="nombre" placeholder="Escriba su nombre" required>
-	</div>
-	<div>
-		<label for="correo">Correo</label>
-		<input type="email" name="correo" id="correo" placeholder="Escriba su correo" required>
-	</div>
-	<div>
-		<input type="submit" value="Enviar">
-	</div>
-	</form>
+	<form action="/springtaller/Cliente" method="post"> 
+ 	 	<div> 
+ 	 	 	<label for="nombre">Nombre</label>  
+			<input type="text" name="nombre" id="nombre"> 
+ 	 	</div> 
+ 	 	<div> 
+ 	 	 	<label for="correo">Correo</label> 
+ 			<input type="email" name="correo" id="correo"> 
+ 	 	</div> 
+ 	 	<div> 
+ 	 	 	<input type="submit" value="Enviar"> 
+ 	 	</div> 
+ 	</form> 
 
 </body>
 </html>
